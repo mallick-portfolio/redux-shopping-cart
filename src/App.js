@@ -4,7 +4,7 @@ import Products from "./components/Products.jsx";
 
 function App() {
   return (
-    <div className="flex justify-between container px-2  mx-auto mt-5">
+    <div className="flex bg-white overflow-hidden justify-between container px-2  mx-auto h-screen py-5">
       <div className="w-4/6">
         <Products />
       </div>

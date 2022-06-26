@@ -13,7 +13,7 @@ const Products = () =>{
   
 
   return (
-    <div className="grid grid-cols-2 gap-5 h-[calc(100%_-_10rem)] overflow-y-auto product-scroll pr-4">
+    <div className="grid grid-cols-2 gap-5 h-full py-6 overflow-y-auto product-scroll pr-4">
       {products.map((product) => (
         <ProductCart key={product.id} product={product}  />
       ))}
