@@ -1,73 +1,73 @@
 [
   {
     "id": 1,
-    "title": "delectus aut autem",
+    "title": "Resistors",
     "des": "Lorem ipsum dolor sit",
     "price": 15
   },
   {
     "id": 2,
-    "title": "delectus aut autem",
+    "title": "Capacitors",
     "des": "Lorem ipsum dolor sit",
     "price": 12
   },
   {
     "id": 3,
-    "title": "delectus aut autem",
+    "title": "Light Emitting Diode",
     "des": "Lorem ipsum dolor sit",
     "price": 19
   },
   {
     "id": 4,
-    "title": "delectus aut autem",
+    "title": "Transistors",
     "des": "Lorem ipsum dolor sit",
     "price": 11
   },
   {
     "id": 5,
-    "title": "delectus aut autem",
+    "title": "Inductors",
     "des": "Lorem ipsum dolor sit",
     "price": 23
   },
   {
     "id": 6,
-    "title": "delectus aut autem",
+    "title": "Integrated Circuit ",
     "des": "Lorem ipsum dolor sit",
     "price": 16
   },
   {
     "id": 7,
-    "title": "delectus aut autem",
+    "title": "Circuit Breaker",
     "des": "Lorem ipsum dolor sit",
     "price": 20
   },
   {
     "id": 8,
-    "title": "delectus aut autem",
+    "title": "Fuse",
     "des": "Lorem ipsum dolor sit",
     "price": 18
   },
   {
     "id": 9,
-    "title": "delectus aut autem",
+    "title": "Switch",
     "des": "Lorem ipsum dolor sit",
     "price": 20
   },
   {
     "id": 10,
-    "title": "delectus aut autem",
+    "title": "Transformer",
     "des": "Lorem ipsum dolor sit",
     "price": 17
   },
   {
     "id": 11,
-    "title": "delectus aut autem",
+    "title": "Battery",
     "des": "Lorem ipsum dolor sit",
     "price": 19
   },
   {
     "id": 12,
-    "title": "delectus aut autem",
+    "title": "Relay",
     "des": "Lorem ipsum dolor sit",
     "price": 12
   }
