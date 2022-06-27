@@ -50,7 +50,7 @@ const CartItems = () => {
           </button>
         </div>
       </div>
-      <ConfirmModal show={show} setShow={setShow} />
+      <ConfirmModal carts={carts} show={show} setShow={setShow} />
     </>
   );
 };
