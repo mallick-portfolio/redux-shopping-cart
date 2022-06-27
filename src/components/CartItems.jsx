@@ -1,13 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CartRow from "./CartRow.jsx";
 import { useSelector } from "react-redux";
 import ConfirmModal from "./ConfirmModal.jsx";
+import SupplyModal from "./SupplyModal.jsx";
 const CartItems = () => {
   const [show, setShow] = useState(false);
+  const [modal, setModal] = useState(false);
+  const wrapperRef = useRef(null);
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside, false);
+    return () => {
+      document.removeEventListener("click", handleClickOutside, false);
+    };
+  }, []);
+  const handleClickOutside = (event) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      setShow(false);
+    }
+  };
+
   const carts = useSelector((state) => state.cart.cart);
   return (
     <>
-      <div className="w-full relative bg-[#e4dfdf] rounded-md ml-2 px-2 pt-5 h-full mb-12">
+      <div
+        ref={wrapperRef}
+        className="w-full relative bg-[#e4dfdf] rounded-md ml-2 px-2 pt-5 h-full mb-12"
+      >
         <h4>List of items you have selected</h4>
 
         <div className="mt-4">
@@ -50,7 +68,13 @@ const CartItems = () => {
           </button>
         </div>
       </div>
-      <ConfirmModal carts={carts} show={show} setShow={setShow} />
+      <SupplyModal modal={modal} />
+      <ConfirmModal
+        carts={carts}
+        show={show}
+        setShow={setShow}
+        setModal={setModal}
+      />
     </>
   );
 };

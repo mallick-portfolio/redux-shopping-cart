@@ -1,6 +1,14 @@
 import React from "react";
 import { RiErrorWarningLine } from "react-icons/ri";
-const ConfirmModal = ({ show, setShow, carts }) => {
+import { useDispatch } from "react-redux";
+import { confirmOrder } from "../redux/cart/cartSlice.js";
+const ConfirmModal = ({ show, setShow, carts, setModal }) => {
+  const dispatch = useDispatch();
+  const doneOrder = () => {
+    dispatch(confirmOrder());
+    setModal(true);
+  };
+
   return (
     <div
       className={`bg-gray-500  text-white rounded-lg w-[450px] md:max-w-md md:mx-auto p-4  mb-4 mx-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
@@ -50,7 +58,10 @@ const ConfirmModal = ({ show, setShow, carts }) => {
             >
               Cancel
             </button>
-            <button className="px-2 py-1 rounded-lg  font-semibold text-sm mt-4 bg-[#444]">
+            <button
+              onClick={doneOrder}
+              className="px-2 py-1 rounded-lg  font-semibold text-sm mt-4 bg-[#444]"
+            >
               Confirm
             </button>
           </div>
