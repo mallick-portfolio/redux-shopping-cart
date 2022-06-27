@@ -1,11 +1,10 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import CartRow from "./CartRow.jsx";
 import { useSelector } from "react-redux";
 import ConfirmModal from "./ConfirmModal.jsx";
 const CartItems = () => {
   const [show, setShow] = useState(false);
   const carts = useSelector((state) => state.cart.cart);
- 
   return (
     <>
       <div className="w-full relative bg-[#e4dfdf] rounded-md ml-2 px-2 pt-5 h-full mb-12">
@@ -30,7 +29,16 @@ const CartItems = () => {
                   ))}
             </tbody>
           </table>
-          <h4 className="text-right mr-12 mt-6">Total</h4>
+          <h4 className="text-right mr-12 mt-6">
+            Total{" "}
+            <span>
+              {carts
+                .map((cart) => {
+                  return cart.totalPrice;
+                })
+                .reduce((a, b) => a + b, 0)}
+            </span>
+          </h4>
         </div>
 
         <div className="absolute top-[85%] left-36">

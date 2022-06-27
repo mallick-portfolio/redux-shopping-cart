@@ -22,22 +22,28 @@ export const cartSlice = createSlice({
       const item = state.cart.find((c) => c.id === action.payload);
       if (item) {
         item.qty++;
+        item.totalPrice = parseFloat(item.price) * parseInt(item.qty);
       }
     },
     decrementQty: (state, action) => {
       const item = state.cart.find((c) => c.id === action.payload);
-
       if (item) {
         if (item.qty <= 1) {
           const updatedItem = state.cart.filter((c) => c.id !== action.payload);
           state.cart = updatedItem;
         } else {
           item.qty = parseInt(item.qty) - 1;
+          item.totalPrice -= parseFloat(item.price);
         }
       }
     },
+    removeItem: (state, action) => {
+      const updatedItem = state.cart.filter((c) => c.id !== action.payload);
+      state.cart = updatedItem;
+    },
   },
 });
-export const { addItem, incrementQty, decrementQty } = cartSlice.actions;
+export const { addItem, incrementQty, decrementQty, removeItem } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
