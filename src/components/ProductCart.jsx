@@ -3,11 +3,12 @@ import productImg from "../assets/images/150.png";
 import { useDispatch } from "react-redux";
 import { addItem } from "../redux/cart/cartSlice.js";
 
-const ProductCart = ({ product }) =>{
+const ProductCart = ({ product }) => {
   const dispatch = useDispatch();
-  const addToCart = (product) =>{
+  const addToCart = (product) => {
     let qty = 1;
-    dispatch(addItem({ ...product, qty }));
+    let totalPrice = product.price;
+    dispatch(addItem({ ...product, qty, totalPrice }));
   };
   return (
     <div

@@ -12,34 +12,32 @@ export const cartSlice = createSlice({
       const item = state.cart.find((c) => c.id === action.payload.id);
       if (item) {
         item.qty++;
+        item.totalPrice = parseFloat(item.price) * parseInt(item.qty);
+        console.log(item.totalPrice, item.qty);
       } else {
         state.cart.push(action.payload);
       }
     },
-    incrementQty: (state, action)=> {
+    incrementQty: (state, action) => {
       const item = state.cart.find((c) => c.id === action.payload);
       if (item) {
         item.qty++;
       }
     },
-    decrementQty: (state, action)=> {
+    decrementQty: (state, action) => {
       const item = state.cart.find((c) => c.id === action.payload);
-      
+
       if (item) {
         if (item.qty <= 1) {
-          const updatedItem = state.cart.filter(
-            (c) => c.id !== action.payload
-          );
+          const updatedItem = state.cart.filter((c) => c.id !== action.payload);
           state.cart = updatedItem;
         } else {
           item.qty = parseInt(item.qty) - 1;
-         
         }
       }
     },
-    }
   },
-);
-export const { addItem, incrementQty,decrementQty } = cartSlice.actions;
+});
+export const { addItem, incrementQty, decrementQty } = cartSlice.actions;
 
 export default cartSlice.reducer;
